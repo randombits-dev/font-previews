@@ -1,0 +1,420 @@
+[
+  {
+    "family": "Leckerli One",
+    "displayName": null,
+    "category": "Handwriting",
+    "stroke": null,
+    "classifications": [
+      "Handwriting",
+      "Display"
+    ],
+    "size": 43212,
+    "subsets": [
+      "menu",
+      "latin"
+    ],
+    "fonts": {
+      "400": {
+        "thickness": 7,
+        "slant": 4,
+        "width": 7,
+        "lineHeight": 1.345
+      }
+    },
+    "axes": [],
+    "designers": [
+      "Gesine Todt"
+    ],
+    "lastModified": "2023-08-25",
+    "dateAdded": "2011-07-20",
+    "popularity": 415,
+    "trending": 1224,
+    "defaultSort": 418,
+    "androidFragment": null,
+    "isNoto": false,
+    "colorCapabilities": [],
+    "primaryScript": "",
+    "primaryLanguage": ""
+  },
+  {
+    "family": "Ledger",
+    "displayName": null,
+    "category": "Serif",
+    "stroke": "Serif",
+    "classifications": [],
+    "size": 62148,
+    "subsets": [
+      "menu",
+      "cyrillic",
+      "latin",
+      "latin-ext"
+    ],
+    "fonts": {
+      "400": {
+        "thickness": 5,
+        "slant": 1,
+        "width": 8,
+        "lineHeight": 1.391
+      }
+    },
+    "axes": [],
+    "designers": [
+      "Denis Masharov"
+    ],
+    "lastModified": "2022-09-21",
+    "dateAdded": "2012-02-22",
+    "popularity": 778,
+    "trending": 480,
+    "defaultSort": 769,
+    "androidFragment": null,
+    "isNoto": false,
+    "colorCapabilities": [],
+    "primaryScript": "",
+    "primaryLanguage": ""
+  },
+  {
+    "family": "Lekton",
+    "displayName": null,
+    "category": "Sans Serif",
+    "stroke": "Sans Serif",
+    "classifications": [],
+    "size": 87405,
+    "subsets": [
+      "menu",
+      "latin",
+      "latin-ext"
+    ],
+    "fonts": {
+      "400": {
+        "thickness": 4,
+        "slant": 1,
+        "width": 7,
+        "lineHeight": 1.0
+      },
+      "400i": {
+        "thickness": 4,
+        "slant": 4,
+        "width": 7,
+        "lineHeight": 1.0
+      },
+      "700": {
+        "thickness": 5,
+        "slant": 1,
+        "width": 7,
+        "lineHeight": 1.0
+      }
+    },
+    "axes": [],
+    "designers": [
+      "ISIA Urbino"
+    ],
+    "lastModified": "2022-09-21",
+    "dateAdded": "2010-12-20",
+    "popularity": 883,
+    "trending": 1525,
+    "defaultSort": 876,
+    "androidFragment": null,
+    "isNoto": false,
+    "colorCapabilities": [],
+    "primaryScript": "",
+    "primaryLanguage": ""
+  },
+  {
+    "family": "Lemon",
+    "displayName": null,
+    "category": "Display",
+    "stroke": "Serif",
+    "classifications": [
+      "Display"
+    ],
+    "size": 77180,
+    "subsets": [
+      "menu",
+      "latin",
+      "latin-ext"
+    ],
+    "fonts": {
+      "400": {
+        "thickness": 8,
+        "slant": 4,
+        "width": 8,
+        "lineHeight": 1.306
+      }
+    },
+    "axes": [],
+    "designers": [
+      "Eduardo Tunni"
+    ],
+    "lastModified": "2023-08-25",
+    "dateAdded": "2011-11-30",
+    "popularity": 446,
+    "trending": 9,
+    "defaultSort": 27,
+    "androidFragment": null,
+    "isNoto": false,
+    "colorCapabilities": [],
+    "primaryScript": "",
+    "primaryLanguage": ""
+  },
+  {
+    "family": "Lemonada",
+    "displayName": null,
+    "category": "Display",
+    "stroke": "Sans Serif",
+    "classifications": [
+      "Handwriting"
+    ],
+    "size": 189204,
+    "subsets": [
+      "menu",
+      "arabic",
+      "latin",
+      "latin-ext",
+      "vietnamese"
+    ],
+    "fonts": {
+      "300": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.998
+      },
+      "400": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.998
+      },
+      "500": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.998
+      },
+      "600": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.998
+      },
+      "700": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.998
+      }
+    },
+    "axes": [
+      {
+        "tag": "wght",
+        "min": 300.0,
+        "max": 700.0,
+        "defaultValue": 400.0
+      }
+    ],
+    "designers": [
+      "Mohamed Gaber",
+      "Eduardo Tunni"
+    ],
+    "lastModified": "2023-08-25",
+    "dateAdded": "2016-06-15",
+    "popularity": 451,
+    "trending": 789,
+    "defaultSort": 453,
+    "androidFragment": null,
+    "isNoto": false,
+    "colorCapabilities": [],
+    "primaryScript": "Arab",
+    "primaryLanguage": ""
+  },
+  {
+    "family": "Lexend",
+    "displayName": null,
+    "category": "Sans Serif",
+    "stroke": "Sans Serif",
+    "classifications": [],
+    "size": 175756,
+    "subsets": [
+      "menu",
+      "latin",
+      "latin-ext",
+      "vietnamese"
+    ],
+    "fonts": {
+      "100": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "200": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "300": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "400": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "500": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "600": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "700": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "800": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "900": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      }
+    },
+    "axes": [
+      {
+        "tag": "wght",
+        "min": 100.0,
+        "max": 900.0,
+        "defaultValue": 400.0
+      }
+    ],
+    "designers": [
+      "Bonnie Shaver-Troup",
+      "Thomas Jockin",
+      "Santiago Orozco",
+      "Héctor Gómez",
+      "Superunion"
+    ],
+    "lastModified": "2023-09-14",
+    "dateAdded": "2021-03-08",
+    "popularity": 136,
+    "trending": 653,
+    "defaultSort": 127,
+    "androidFragment": null,
+    "isNoto": false,
+    "colorCapabilities": [],
+    "primaryScript": "",
+    "primaryLanguage": ""
+  },
+  {
+    "family": "Lexend Deca",
+    "displayName": null,
+    "category": "Sans Serif",
+    "stroke": "Sans Serif",
+    "classifications": [],
+    "size": 175928,
+    "subsets": [
+      "menu",
+      "latin",
+      "latin-ext",
+      "vietnamese"
+    ],
+    "fonts": {
+      "100": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "200": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "300": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "400": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "500": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "600": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "700": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "800": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      },
+      "900": {
+        "thickness": null,
+        "slant": null,
+        "width": null,
+        "lineHeight": 1.25
+      }
+    },
+    "axes": [
+      {
+        "tag": "wght",
+        "min": 100.0,
+        "max": 900.0,
+        "defaultValue": 400.0
+      }
+    ],
+    "designers": [
+      "Bonnie Shaver-Troup",
+      "Thomas Jockin",
+      "Santiago Orozco",
+      "Héctor Gómez",
+      "Superunion"
+    ],
+    "lastModified": "2023-03-21",
+    "dateAdded": "2019-08-01",
+    "popularity": 190,
+    "trending": 477,
+    "defaultSort": 189,
+    "androidFragment": null,
+    "isNoto": false,
+    "colorCapabilities": [],
+    "primaryScript": "",
+    "primaryLanguage": ""
+  }
+]
