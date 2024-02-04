@@ -27,12 +27,6 @@ const flattenDataWithoutStyles = (data) => {
 export const writeFiles = (data) => {
   const validData = data.filter(font => font.styles.length > 0);
 
-  // const base64map = {};
-  // dataWithoutStyles.forEach(font => {
-  //   base64map[font.name] = font.base64;
-  // });
-  // fs.writeFileSync('dist/base64.json', JSON.stringify(base64map));
-  
   const simpleData = validData.map(font => ({
     name: font.apiData.family,
     category: font.apiData.category,
@@ -41,8 +35,8 @@ export const writeFiles = (data) => {
     dateAdded: font.apiData.dateAdded,
     styles: font.styles
   }));
-  fs.writeFileSync('dist/fonts-all-styles.json', JSON.stringify(simpleData));
+  fs.writeFileSync('output/google-fonts-all-styles.json', JSON.stringify(simpleData));
 
   const dataWithoutStyles = flattenDataWithoutStyles(validData);
-  fs.writeFileSync('dist/fonts.json', JSON.stringify(dataWithoutStyles));
+  fs.writeFileSync('output/google-fonts.json', JSON.stringify(dataWithoutStyles));
 };

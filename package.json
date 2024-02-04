@@ -1,14 +1,14 @@
 {
-  "name": "font-preview-generator",
+  "name": "font-previews",
   "description": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/randombits-dev/font-preview-generator/issues"
+    "url": "https://github.com/randombits-dev/font-previews/issues"
   },
-  "homepage": "https://github.com/randombits-dev/font-preview-generator",
+  "homepage": "https://github.com/randombits-dev/font-previews",
   "version": "1.0.0",
   "type": "module",
-  "main": "output/fonts.json",
+  "main": "output/google-fonts.json",
   "files": [
     "output"
   ],
