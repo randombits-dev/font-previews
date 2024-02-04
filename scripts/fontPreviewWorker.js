@@ -49,7 +49,7 @@ const handleFont = async (lowerCaseFontName, name, style) => {
   const out = await page.screenshot({omitBackground: true});
   // await browser.close();
   const trimmed = sharp(out).trim().webp();
-  // await trimmed.toFile(`dist/images/${lowerCaseFontName}-${style.name}-${style.weight}.webp`);
+  await trimmed.toFile(`dist/images/${lowerCaseFontName}-${style.name}-${style.weight}.webp`);
   const buf = await trimmed.toBuffer();
   return buf.toString('base64');
 };

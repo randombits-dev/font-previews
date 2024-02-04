@@ -55,9 +55,7 @@ async function run() {
     apiDatas[font.family] = font;
   });
 
-  for (const font of first10) {
-
-
+  for (const font of fontList) {
     let metadata = null;
     try {
       metadata = parseMetadata(font);

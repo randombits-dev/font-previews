@@ -8,9 +8,9 @@
   "homepage": "https://github.com/randombits-dev/font-preview-generator",
   "version": "1.0.0",
   "type": "module",
-  "main": "dist/all.json",
+  "main": "output/fonts.json",
   "files": [
-    "dist"
+    "output"
   ],
   "keywords": [
     "font",
