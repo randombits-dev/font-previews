@@ -27,7 +27,7 @@
   "devDependencies": {
     "fs-extra": "^11.2.0",
     "puppeteer": "^21.7.0",
-    "sharp": "^0.32.6",
+    "sharp": "^0.33.3",
     "workerpool": "^9.1.0"
   }
 }
