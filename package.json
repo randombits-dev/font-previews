@@ -14,9 +14,9 @@
   ],
   "keywords": [
     "font",
-    "google",
-    "google fonts",
-    "font preview",
+    "images",
+    "google font",
+    "preview",
     "generator"
   ],
   "scripts": {
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "fs-extra": "^11.2.0",
+    "pngjs": "^7.0.0",
     "puppeteer": "^21.7.0",
     "sharp": "^0.32.6",
     "workerpool": "^9.1.0"

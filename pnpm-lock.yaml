@@ -8,6 +8,9 @@ devDependencies:
   fs-extra:
     specifier: ^11.2.0
     version: 11.2.0
+  pngjs:
+    specifier: ^7.0.0
+    version: 7.0.0
   puppeteer:
     specifier: ^21.7.0
     version: 21.7.0
@@ -648,6 +651,11 @@ packages:
 
   /pend@1.2.0:
     resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
+    dev: true
+
+  /pngjs@7.0.0:
+    resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
+    engines: {node: '>=14.19.0'}
     dev: true
 
   /prebuild-install@7.1.1:

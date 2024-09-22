@@ -48,6 +48,7 @@ async function run() {
 
   const fontList = fs.readdirSync('F:/dev/google-fonts');
   const first10 = fontList.slice(0, 10);
+  const subset = fontList.filter(font => font === 'abrilfatface' || font === 'dancingscript' || font === 'roboto');
 
   const apiResult = await fetch('https://fonts.google.com/metadata/fonts').then(raw => raw.json());
   const apiDatas = {};
@@ -71,16 +72,27 @@ async function run() {
       continue;
     }
 
-    const stylePromises = metadata.styles.map((style) =>
-        pool.exec('handleFont', [font, metadata.name, style])
-            .then(result => ({
-              img: `${font}-${style.name}-${style.weight}.webp`,
-              type: style.name,
-              weight: style.weight,
-              base64: result,
-            })).catch((err) => {
-          console.error(err);
-        }));
+    let heavyStyles = metadata.styles.filter(style => style.name === 'normal').sort((a, b) => b.weight - a.weight);
+    if (heavyStyles.length === 0) {
+      console.log('no normal: ' + font);
+      continue;
+    }
+
+    heavyStyles = [heavyStyles[0]];
+
+    const stylePromises = heavyStyles.map((style) => {
+      console.log(metadata.name, style.weight);
+      return pool.exec('handleFont', [font, metadata.name, style])
+          .then(([base64, density]) => ({
+            img: `${font}-${style.name}-${style.weight}.webp`,
+            type: style.name,
+            weight: style.weight,
+            density,
+            base64,
+          })).catch((err) => {
+            console.error(err);
+          });
+    });
 
     promises.push(new Promise((resolve) => {
       Promise.all(stylePromises).then((results) => {

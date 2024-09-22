@@ -18,6 +18,7 @@ const flattenDataWithoutStyles = (data) => {
       trending: font.apiData.trending,
       dateAdded: font.apiData.dateAdded,
       img: regularStyle.img,
+      density: regularStyle.density,
       base64: regularStyle.base64
     };
   });
@@ -33,7 +34,7 @@ export const writeFiles = (data) => {
     popularity: font.apiData.popularity,
     trending: font.apiData.trending,
     dateAdded: font.apiData.dateAdded,
-    styles: font.styles
+    styles: font.styles,
   }));
   fs.writeFileSync('output/google-fonts-all-styles.json', JSON.stringify(simpleData));
 
