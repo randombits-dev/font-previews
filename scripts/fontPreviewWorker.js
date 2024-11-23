@@ -21,7 +21,7 @@ const getHTML = (name, weight, font, densityTest) => {
             }
             body {
                 font-family: ${name}, monospace;
-                font-weight: 900;
+                font-weight: 400;
                 font-size: ${densityTest ? '50vh' : '8px'};
                 height: 100vh;
                 display: flex;
@@ -70,7 +70,7 @@ const handleFont = async (lowerCaseFontName, name, style) => {
   const font = fs.readFileSync(`F:/dev/google-fonts/${lowerCaseFontName}/${style.filename}`);
   const page = await browser.newPage();
   await page.setViewport({width: 300, height: 50, deviceScaleFactor: 1});
-  await page.setContent(getHTML(name, 900, font, false));
+  await page.setContent(getHTML(name, 400, font, false));
   const out = await page.screenshot({omitBackground: true});
   // await browser.close();
 
