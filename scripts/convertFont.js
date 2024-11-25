@@ -6,8 +6,8 @@ export const convertFont = (font, name, style, i) => {
     const fec = FEC.create(font, {
       type: 'ttf',
     });
-    fs.mkdirSync(`output/${name}`, {recursive: true});
-    fs.writeFileSync(`output/${name}/${i}.woff2`, fec.write({
+    fs.mkdirSync(`fonts/${name}`, {recursive: true});
+    fs.writeFileSync(`fonts/${name}/${i}.woff2`, fec.write({
       type: 'woff2',
     }));
   } catch (e) {

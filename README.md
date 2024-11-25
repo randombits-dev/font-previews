@@ -1,4 +1,4 @@
-# Font Previews
+# Google Font 
 
 Preview images of Google Fonts, for use in font pickers, etc.
 

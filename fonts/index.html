@@ -19,13 +19,13 @@
   const outputEl = document.getElementById('output');
   const copied = [];
 
-  fetch('../output/records.json').then(res => res.json()).then(data => {
+  fetch('records.json').then(res => res.json()).then(data => {
     data.forEach(record => {
       const img = document.createElement('img');
-      img.src = `../output/${encodeURIComponent(record.n)}/0.webp`;
+      img.src = `${encodeURIComponent(record.n)}/0.webp`;
       img.setAttribute('loading', 'lazy');
       img.addEventListener('click', () => {
-        const font = new FontFace(record.name, `url('../output/${encodeURIComponent(record.n)}/0.woff2')`);
+        const font = new FontFace(record.name, `url('${encodeURIComponent(record.n)}/0.woff2')`);
         font.load().then(() => {
           document.fonts.add(font);
         });

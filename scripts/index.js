@@ -7,8 +7,6 @@ const pool = workerpool.pool('./scripts/fontPreviewWorker.js', {
   minWorkers: 4
 });
 
-// const nonCharClasses = ["SYMBOLS",
-
 const getIgnored = (apiData) => {
   if (!apiData) {
     return 'no api data';
@@ -73,7 +71,6 @@ async function run() {
     }
 
     const stylePromises = metadata.styles.map((style, i) => {
-      // console.log(metadata.name, style.weight);
       return pool.exec('handleFont', [font, metadata.name, style, i])
           .then(() => {
             const styleOut = [style.weight];
@@ -81,8 +78,6 @@ async function run() {
               styleOut.push(style.name);
             }
             return styleOut;
-            // density,
-            // base64,
           }).catch((err) => {
             console.error(err);
           });
@@ -95,7 +90,6 @@ async function run() {
           name: metadata.name,
           category: convertCategory(metadata.category),
           apiData,
-          // classes: metadata.classes,
           styles: results
         });
       });
@@ -108,26 +102,6 @@ async function run() {
 run().then(async (results) => {
 
   writeFiles(results);
-
-  // const sprite = await sharp({
-  //   create: {
-  //     width: 500,
-  //     height: results.length * 40,
-  //     channels: 3,
-  //     background: {r: 255, g: 255, b: 255},
-  //   },
-  // })
-  //     .composite(
-  //         results.map((result, index) => ({
-  //           input: Buffer.from(result.styles[0].base64, 'base64'),
-  //           left: 0,
-  //           top: index * 40 + 12,
-  //         }))
-  //     )
-  //     .toFormat('webp', {quality: 100})
-  //     .toBuffer();
-  // fs.writeFileSync('sprite.webp', sprite);
-
 
   pool.terminate().then(() => {
     console.log('Terminated');
