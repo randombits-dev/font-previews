@@ -31,6 +31,7 @@
     "pngjs": "^7.0.0",
     "puppeteer": "^21.7.0",
     "sharp": "^0.32.6",
-    "workerpool": "^9.1.0"
+    "workerpool": "^9.1.0",
+    "wrangler": "^3.90.0"
   }
 }
