@@ -28,6 +28,7 @@ export const parseMetadata = (font) => {
 
 
   const name = getProperty('name');
+  const license = getProperty('license');
   const category = getProperty('category');
 
   const styles = [];
@@ -46,6 +47,7 @@ export const parseMetadata = (font) => {
 
   return {
     name,
+    license,
     category,
     classes,
     styles

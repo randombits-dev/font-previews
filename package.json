@@ -25,6 +25,7 @@
   "dependencies": {
   },
   "devDependencies": {
+    "fonteditor-core": "^2.4.1",
     "fs-extra": "^11.2.0",
     "pngjs": "^7.0.0",
     "puppeteer": "^21.7.0",

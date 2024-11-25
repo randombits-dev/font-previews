@@ -2,7 +2,6 @@ import fs from 'fs-extra';
 import workerpool from 'workerpool';
 import {parseMetadata} from "./metadataParser.js";
 import {writeFiles} from "./fileWriter.js";
-import sharp from "sharp";
 
 const pool = workerpool.pool('./scripts/fontPreviewWorker.js', {
   minWorkers: 4
@@ -73,24 +72,18 @@ async function run() {
       continue;
     }
 
-    // let heavyStyles = metadata.styles.filter(style => style.name === 'normal').sort((a, b) => b.weight - a.weight);
-    // if (heavyStyles.length === 0) {
-    //   console.log('no normal: ' + font);
-    //   continue;
-    // }
-    //
-    // heavyStyles = [heavyStyles[0]];
-
-    const stylePromises = metadata.styles.map((style) => {
-      console.log(metadata.name, style.weight);
-      return pool.exec('handleFont', [font, metadata.name, style])
-          .then(([base64, density]) => ({
-            img: `${font}-${style.name}-${style.weight}.webp`,
-            type: style.name,
-            weight: style.weight,
-            density,
-            base64,
-          })).catch((err) => {
+    const stylePromises = metadata.styles.map((style, i) => {
+      // console.log(metadata.name, style.weight);
+      return pool.exec('handleFont', [font, metadata.name, style, i])
+          .then(() => {
+            const styleOut = [style.weight];
+            if (style.name !== 'normal') {
+              styleOut.push(style.name);
+            }
+            return styleOut;
+            // density,
+            // base64,
+          }).catch((err) => {
             console.error(err);
           });
     });
@@ -116,24 +109,24 @@ run().then(async (results) => {
 
   writeFiles(results);
 
-  const sprite = await sharp({
-    create: {
-      width: 500,
-      height: results.length * 40,
-      channels: 3,
-      background: {r: 255, g: 255, b: 255},
-    },
-  })
-      .composite(
-          results.map((result, index) => ({
-            input: Buffer.from(result.styles[0].base64, 'base64'),
-            left: 0,
-            top: index * 40 + 12,
-          }))
-      )
-      .toFormat('webp', {quality: 100})
-      .toBuffer();
-  fs.writeFileSync('sprite.webp', sprite);
+  // const sprite = await sharp({
+  //   create: {
+  //     width: 500,
+  //     height: results.length * 40,
+  //     channels: 3,
+  //     background: {r: 255, g: 255, b: 255},
+  //   },
+  // })
+  //     .composite(
+  //         results.map((result, index) => ({
+  //           input: Buffer.from(result.styles[0].base64, 'base64'),
+  //           left: 0,
+  //           top: index * 40 + 12,
+  //         }))
+  //     )
+  //     .toFormat('webp', {quality: 100})
+  //     .toBuffer();
+  // fs.writeFileSync('sprite.webp', sprite);
 
 
   pool.terminate().then(() => {

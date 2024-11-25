@@ -4,6 +4,8 @@ import puppeteer from "puppeteer";
 import sharp from "sharp";
 import {PNG} from "pngjs";
 import {Readable} from "stream";
+import {convertFont} from "./convertFont.js";
+import {woff2} from "fonteditor-core";
 
 const getHTML = (name, weight, font, densityTest) => {
   return `<html>
@@ -22,7 +24,7 @@ const getHTML = (name, weight, font, densityTest) => {
             body {
                 font-family: ${name}, monospace;
                 font-weight: 400;
-                font-size: ${densityTest ? '50vh' : '8px'};
+                font-size: 28px;
                 height: 100vh;
                 display: flex;
                 align-items: center;
@@ -33,6 +35,8 @@ const getHTML = (name, weight, font, densityTest) => {
         <h1>${name}</h1>
     </body></html>`;
 };
+
+await woff2.init();
 
 let browser = await puppeteer.launch({headless: 'new'});
 let count = 0;
@@ -60,7 +64,7 @@ const getDensity = (buf) => {
 };
 
 
-const handleFont = async (lowerCaseFontName, name, style) => {
+const handleFont = async (lowerCaseFontName, name, style, i) => {
   count++;
   if (count > 100) {
     await browser.close();
@@ -68,24 +72,34 @@ const handleFont = async (lowerCaseFontName, name, style) => {
     browser = await puppeteer.launch({headless: 'new'});
   }
   const font = fs.readFileSync(`F:/dev/google-fonts/${lowerCaseFontName}/${style.filename}`);
+
+  convertFont(font, name, style, i);
+
   const page = await browser.newPage();
-  await page.setViewport({width: 300, height: 50, deviceScaleFactor: 1});
+  await page.setViewport({width: 1500, height: 100, deviceScaleFactor: 1});
   await page.setContent(getHTML(name, 400, font, false));
   const out = await page.screenshot({omitBackground: true});
   // await browser.close();
 
-  const page2 = await browser.newPage();
-  await page2.setViewport({width: 300, height: 50, deviceScaleFactor: 1});
-  await page2.setContent(getHTML('abcdefg', 900, font, true));
-  const out2 = await page2.screenshot({omitBackground: true});
-  const png = sharp(out2).trim().png();
-  const pngBuf = await png.toBuffer();
-  const density = await getDensity(pngBuf);
+  // const page2 = await browser.newPage();
+  // await page2.setViewport({width: 300, height: 50, deviceScaleFactor: 1});
+  // await page2.setContent(getHTML('abcdefg', 900, font, true));
+  // const out2 = await page2.screenshot({omitBackground: true});
+  // const png = sharp(out2).trim().png();
+  // const pngBuf = await png.toBuffer();
+  // const density = await getDensity(pngBuf);
 
-  const trimmed = sharp(out).trim().webp();
-  await trimmed.toFile(`output/images/${lowerCaseFontName}-${style.name}-${style.weight}.webp`);
-  const buf = await trimmed.toBuffer();
-  return [buf.toString('base64'), density];
+  const s = sharp(out);
+  // await s.toFile(`output/${name}/${i}-1.png`);
+  const trimmed = s.trim();
+  // await trimmed.toFile(`output/${name}/${i}-2.png`);
+  const resized = trimmed.resize({
+    fit: 'contain',
+    height: 36
+  });
+  // await resized.toFile(`output/${name}/${i}-3.png`);
+
+  await resized.webp().toFile(`output/${name}/${i}.webp`);
 };
 
 workerpool.worker({

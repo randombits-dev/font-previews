@@ -1,0 +1,46 @@
+<html>
+<head>
+    <style>
+        img {
+            display: block;
+            height: 20px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div style="height: 100%; display: grid; grid-template-columns: 400px 1fr">
+    <div id="previews" style="overflow-y: scroll"></div>
+    <pre id="output" style="padding: 0 20px; font-size: 50px; white-space: wrap">The quick fox jumped over the lazy brown dog</pre>
+</div>
+<script type="module">
+  const previewsEl = document.getElementById('previews');
+  const outputEl = document.getElementById('output');
+  const copied = [];
+
+  fetch('../output/records.json').then(res => res.json()).then(data => {
+    data.forEach(record => {
+      const img = document.createElement('img');
+      img.src = `../output/${encodeURIComponent(record.n)}/0.webp`;
+      img.setAttribute('loading', 'lazy');
+      img.addEventListener('click', () => {
+        const font = new FontFace(record.name, `url('../output/${encodeURIComponent(record.n)}/0.woff2')`);
+        font.load().then(() => {
+          document.fonts.add(font);
+        });
+        outputEl.style.fontFamily = record.name;
+
+        if (!copied.find(c => c.n === record.n)) {
+          copied.push(record);
+          console.log(copied);
+          navigator.clipboard.writeText(JSON.stringify(copied));
+        }
+      });
+      previewsEl.appendChild(img);
+    });
+  });
+
+</script>
+</body>
+</html>

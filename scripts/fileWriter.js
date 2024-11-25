@@ -12,14 +12,14 @@ const flattenDataWithoutStyles = (data) => {
     }
 
     return {
-      name: font.apiData.family,
-      category: font.apiData.category,
-      popularity: font.apiData.popularity,
-      trending: font.apiData.trending,
-      dateAdded: font.apiData.dateAdded,
-      img: regularStyle.img,
-      density: regularStyle.density,
-      base64: regularStyle.base64
+      n: font.apiData.family,
+      c: font.apiData.category,
+      p: font.apiData.popularity,
+      t: font.apiData.trending,
+      d: font.apiData.dateAdded,
+      // f: regularStyle.f,
+      // density: regularStyle.density,
+      // base64: regularStyle.base64
     };
   });
 };
@@ -29,15 +29,15 @@ export const writeFiles = (data) => {
   const validData = data.filter(font => font.styles.length > 0);
 
   const simpleData = validData.map(font => ({
-    name: font.apiData.family,
-    category: font.apiData.category,
-    popularity: font.apiData.popularity,
-    trending: font.apiData.trending,
-    dateAdded: font.apiData.dateAdded,
-    styles: font.styles,
+    n: font.apiData.family,
+    c: font.apiData.category,
+    p: font.apiData.popularity,
+    t: font.apiData.trending,
+    d: font.apiData.dateAdded,
+    f: font.styles,
   }));
-  fs.writeFileSync('output/google-fonts-all-styles.json', JSON.stringify(simpleData));
+  fs.writeFileSync('output/records.json', JSON.stringify(simpleData));
 
-  const dataWithoutStyles = flattenDataWithoutStyles(validData);
-  fs.writeFileSync('output/google-fonts.json', JSON.stringify(dataWithoutStyles));
+  // const dataWithoutStyles = flattenDataWithoutStyles(validData);
+  // fs.writeFileSync('output/google-fonts.json', JSON.stringify(dataWithoutStyles));
 };
