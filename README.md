@@ -2,7 +2,7 @@
 
 A collection of metadata, preview images, and woff2 files for Google Fonts.
 
-The `font/records.json` file contains metadata for the fonts:
+The `fonts/records.json` file contains metadata for the fonts:
 
 ```json
 [{
@@ -17,7 +17,7 @@ The `font/records.json` file contains metadata for the fonts:
 
 The previews and woff2 files are located in `fonts/[name]`. A lot of the fonts contain multiple styles for different weights (400, 600, etc) and types (italic vs normal). The files are named using an index system, where the first font style is `0.webp`, for the preview, and `0.woff2` for the font file. The second style is `1.webp` and `1.woff2`, and so on.
 
-The array of files in `records.json` gives the weight of style, and the type if it is not normal. For example, in the `ABeeZee` metadata above, the font files are `[[400], [400, "italic"], [500]]`. This means that `0.webp` and `0.woff2` are the normal 400 weight, `1.webp` and `1.woff2` are the italic 400 weight, and `2.webp` and `2.woff2` are the normal 500 weight.
+The array of files in for each font gives the weight of style, and the type if it is not normal. For example, in the `ABeeZee` metadata above, the font files are `[[400], [400, "italic"], [500]]`. This means that `0.webp` and `0.woff2` are the normal 400 weight, `1.webp` and `1.woff2` are the italic 400 weight, and `2.webp` and `2.woff2` are the normal 500 weight.
 
 ## How the images were generated
 
@@ -35,7 +35,7 @@ Filter and sort the `records.json` data to include only the fonts you want to us
 You can create a nodejs script in your project that imports the data, and modifies it:
 
 ```javascript
-import fontList from 'google-font-db/records.json' assert {type: 'json'};
+import fontList from 'fonts/records.json' assert {type: 'json'};
 import fs from 'node:fs';
 
 // sort by popularity, and only grap the top 100
