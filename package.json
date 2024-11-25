@@ -6,7 +6,7 @@
     "url": "https://github.com/randombits-dev/font-previews/issues"
   },
   "homepage": "https://github.com/randombits-dev/font-previews",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "main": "output/google-fonts.json",
   "files": [
