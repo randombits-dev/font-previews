@@ -7,6 +7,8 @@ const pool = workerpool.pool('./scripts/fontPreviewWorker.js', {
   minWorkers: 4
 });
 
+const IGNORE = ["BIZ UDGothic", "BIZ UDPGothic", "BIZ UDMincho", "BIZ UDPMincho", "Klee One", "Splash"];
+
 const getIgnored = (apiData) => {
   if (!apiData) {
     return 'no api data';
@@ -64,7 +66,7 @@ async function run() {
     }
 
     const apiData = apiDatas[metadata.name];
-    const ignored = getIgnored(apiData);
+    const ignored = IGNORE.includes(metadata.name) || getIgnored(apiData);
     if (ignored) {
       console.log('ignored: ' + font + ' - ' + ignored);
       continue;

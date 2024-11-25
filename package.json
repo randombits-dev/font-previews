@@ -1,6 +1,6 @@
 {
-  "name": "font-previews",
-  "description": "",
+  "name": "google-fonts-db",
+  "description": "A collection of Google Fonts previews, woff2 font files, and metadata.",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/randombits-dev/font-previews/issues"
@@ -20,7 +20,8 @@
     "generator"
   ],
   "scripts": {
-    "load": "node scripts/index.js"
+    "load": "node scripts/index.js",
+    "deploy": "wrangler pages deploy fonts --project-name google-fonts"
   },
   "dependencies": {
   },
